@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel Neon Futurista</title>
+<style>
+    /* Fundo animado multi-colorido */
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: #000;
+        perspective: 1000px;
+    }
+
+    .background {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(60deg, #ff0000, #ff9900, #ffff00, #00ff00, #00ffff, #0000ff, #9900ff, #ff00ff);
+        background-size: 400% 400%;
+        animation: gradientMove 20s ease infinite, rotate3D 30s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes gradientMove {
+        0% {background-position: 0% 50%;}
+        50% {background-position: 100% 50%;}
+        100% {background-position: 0% 50%;}
+    }
+
+    @keyframes rotate3D {
+        0% {transform: rotateX(0deg) rotateY(0deg);}
+        50% {transform: rotateX(15deg) rotateY(15deg);}
+        100% {transform: rotateX(0deg) rotateY(0deg);}
+    }
+
+    /* Overlay para contraste */
+    body::before {
+        content: "";
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background: rgba(0,0,0,0.4);
+        z-index:1;
+    }
+
+    /* Partículas flutuantes */
+    .particle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: white;
+        opacity: 0.7;
+        animation: floatParticle 10s linear infinite;
+    }
+
+    @keyframes floatParticle {
+        0% {transform: translateY(0) translateX(0);}
+        50% {transform: translateY(-400px) translateX(200px);}
+        100% {transform: translateY(0) translateX(0);}
+    }
+
+    /* Container dos botões */
+    .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+    }
+
+    /* Botões Neon HD individual */
+    .btn {
+        padding: 18px 50px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #fff;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+    }
+
+    /* Cores diferentes por botão */
+    .btn:nth-child(1) {background: #ff0066; box-shadow: 0 0 10px #ff0066,0 0 20px #ff0066;}
+    .btn:nth-child(2) {background: #00ffff; box-shadow: 0 0 10px #00ffff,0 0 20px #00ffff;}
+    .btn:nth-child(3) {background: #ff9900; box-shadow: 0 0 10px #ff9900,0 0 20px #ff9900;}
+    .btn:nth-child(4) {background: #66ff00; box-shadow: 0 0 10px #66ff00,0 0 20px #66ff00;}
+    .btn:nth-child(5) {background: #9900ff; box-shadow: 0 0 10px #9900ff,0 0 20px #9900ff;}
+    .btn:nth-child(6) {background: #00ff66; box-shadow: 0 0 10px #00ff66,0 0 20px #00ff66;}
+    .btn:nth-child(7) {background: #ff3300; box-shadow: 0 0 10px #ff3300,0 0 20px #ff3300;}
+    .btn:nth-child(8) {background: #ffcc00; box-shadow: 0 0 10px #ffcc00,0 0 20px #ffcc00;}
+
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        width: calc(100% + 10px);
+        height: calc(100% + 10px);
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+    }
+
+    /* Neon Hover */
+    .btn:hover::after {
+        opacity: 1;
+        box-shadow: 0 0 25px currentColor, 0 0 50px currentColor, 0 0 75px currentColor;
+    }
+
+    .btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        filter: brightness(1.2);
+    }
+</style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <!-- Partículas -->
+    <div class="particle" style="top: 10%; left: 20%;"></div>
+    <div class="particle" style="top: 30%; left: 80%;"></div>
+    <div class="particle" style="top: 50%; left: 40%;"></div>
+    <div class="particle" style="top: 70%; left: 60%;"></div>
+    <div class="particle" style="top: 90%; left: 10%;"></div>
+
+    <div class="container">
+        <a href="https://taskitos.cupiditys.lol/" class="btn" target="_blank">Acessar Taskitos</a>
+        <a href="https://redacao.cupiditys.lol/" class="btn" target="_blank">Acessar Redação</a>
+        <a href="https://crimsonstrauss.xyz/expansao" class="btn" target="_blank">Acessar Expansão</a>
+        <a href="https://speakify.cupiditys.lol/" class="btn" target="_blank">Acessar Speakify</a>
+        <a href="https://crimsonstrauss.xyz/alura" class="btn" target="_blank">Acessar Alura</a>
+        <a href="https://matific.cupiditys.lol/" class="btn" target="_blank">Acessar Matific</a>
+        <a href="https://khantool.camposcloud.app/khantoolmenu.html" class="btn" target="_blank">Acessar Khantool</a>
+        <a href="https://crimsonstrauss.xyz/livrodoestudante" class="btn" target="_blank">Acessar Livro do Estudante</a>
+    </div>
+</body>
+</html>
